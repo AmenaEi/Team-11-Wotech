@@ -75,20 +75,20 @@ public class DatoriumApiApplication {
 		return null;
 	}
 
-	@PostMapping("/alchemy")
-	public Elixir alchemy(@RequestBody Ingredients ingredients) {
-		if(ingredients.solvent.equalsIgnoreCase("Water") && ingredients.reagent.equalsIgnoreCase("Dragon Weed")) {
-			var potion = new Potion();
-			potion.name = "Magicka Restoration";
-			return potion;
-		} else if(ingredients.solvent.equalsIgnoreCase("Troll blood") && ingredients.reagent.equalsIgnoreCase("Giant spider leg")) {
-			var poison = new Poison();
-			poison.name = "Stamina Killer";
-			return poison;
-		} else {
-			throw new RuntimeException("This components and/or combinations are unknown");
-		}
-	}
+//	@PostMapping("/alchemy")
+//	public Elixir alchemy(@RequestBody Ingredients ingredients) {
+//		if(ingredients.solvent.equalsIgnoreCase("Water") && ingredients.reagent.equalsIgnoreCase("Dragon Weed")) {
+//			var potion = new Potion();
+//			potion.name = "Magicka Restoration";
+//			return potion;
+//		} else if(ingredients.solvent.equalsIgnoreCase("Troll blood") && ingredients.reagent.equalsIgnoreCase("Giant spider leg")) {
+//			var poison = new Poison();
+//			poison.name = "Stamina Killer";
+//			return poison;
+//		} else {
+//			throw new RuntimeException("This components and/or combinations are unknown");
+//		}
+//	}
 
 	/*
 	@GetMapping("/draw")
