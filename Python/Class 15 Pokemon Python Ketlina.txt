@@ -1,0 +1,53 @@
+#Task 1.
+#required libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+
+#read file
+df = pd.read_csv('/content/Pokemon.csv')
+
+#total amount and water amount of pokemons 
+total_pokemon = len(df)
+water_pokemon = len(df[df['Type 1'] == 'Water'])
+
+#percentage calculation and rounding
+percentage_water = round((water_pokemon / total_pokemon) * 100)
+
+#visualise in percentage
+print(f"{percentage_water}%")
+
+#Task 2
+#max and min speeds
+max_speed = df['Speed'].max()
+min_speed = df['Speed'].min()
+
+#calculating difference
+speed_difference = max_speed - min_speed
+
+#display
+print(f"Maximum Speed: {max_speed}")
+print(f"Minimum Speed: {min_speed}")
+print(f"Difference between Maximum and Minimum Speed: {speed_difference}")
+
+#Task 3
+#pokemons with speed greater or equal to 80
+fast_pokemon_df = df[df['Speed'] >= 80]
+
+#amount of above vs below 80 speed pokemons
+num_fast_pokemon = len(fast_pokemon_df)
+num_slow_pokemon = total_pokemon - num_fast_pokemon
+
+#pie chart data
+sizes = [num_fast_pokemon, num_slow_pokemon]
+labels = ['Speed >= 80', 'Speed < 80']
+colors = ['teal', 'lightgrey']
+
+#display pie chart
+plt.figure(figsize=(8, 8))
+plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors, startangle=140)
+plt.title('Amount of Pokemons That Have Speed Equal and Above 80 in Percentage.')
+plt.show()
+print(f"Number of pokemons with speed greater than, or equal to 80: {num_fast_pokemon}")
+print(f"Total amount of pokemons: {total_pokemon}")
+
+
